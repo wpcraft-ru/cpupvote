@@ -1,0 +1,87 @@
+div.upvote {
+	width:100%;
+    text-align: center;
+	position: relative;
+	display:inline-block;
+	margin: 0 0 24px;
+}
+div.upvote-frame{
+	float:right;
+}
+div.upvote a.upvote-enabled {
+    cursor: pointer;
+}
+
+div.upvote a {
+    color: transparent;
+    background-image: url('../images/sprites-stackoverflow.png?v=1');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    width: 41px;
+    height: 25px;
+}
+
+div.upvote span.count {
+    display: block;
+    font-size: 24px;
+    font-family: Arial, Liberation, Sans, DejaVu Sans, sans-serif;
+    color: #555;
+    text-align: center;
+    line-height: 1;
+}
+
+div.upvote a.upvote {
+    background-position: 0px -265px;
+}
+
+div.upvote a.upvote.upvoted {
+    background-position: 0px -230px;
+}
+
+div.upvote a.downvote {
+    background-position: 0px -300px;
+}
+
+div.upvote a.downvote.downvoted {
+    background-position: 0px -330px;
+}
+
+div.upvote a.star {
+    width: 33px;
+    height: 31px;
+    background-position: 0px -150px;
+}
+
+div.upvote a.star.starred {
+    background-position: 0px -190px;
+}
+
+div.upvote-serverfault a {
+    background-image: url('../images/sprites-serverfault.png?v=1');
+}
+
+.box-modal {
+	position: relative;
+	width: 500px;
+	padding: 16px;
+	background: #fff;
+	color: #3c3c3c;
+	font: 14px/18px Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+	box-shadow: 0 0 0 2px rgba(153, 153, 153, .3);
+	border-radius: 2px;
+}
+.box-modal_close { position: absolute; right: 10px; top: 6px; font-size: 11px; line-height: 15px; color: #999; cursor: pointer; }
+.box-modal_close:hover { color: #666; }
+.arcticmodal-overlay,
+.arcticmodal-container { position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 1000; }
+.arcticmodal-container { overflow: auto; margin: 0; padding: 0; border: 0; border-collapse: collapse; }
+*:first-child+html .arcticmodal-container { height: 100% }
+.arcticmodal-container_i { height: 100%; margin: 0 auto; }
+.arcticmodal-container_i2 { padding: 24px; margin: 0; border: 0; vertical-align: middle; }
+.arcticmodal-error { padding: 20px; border-radius: 10px; background: #000; color: #fff; }
+.arcticmodal-loading { width: 80px; height: 80px; border-radius: 10px; background: #000 url(loading.gif) no-repeat 50% 50%; }
+/* global */
+.g-hidden { display: none; }
+
