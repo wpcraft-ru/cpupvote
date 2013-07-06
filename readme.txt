@@ -18,7 +18,7 @@ takes 2 arguments - 'user' - USER_ID and 'type' - all|comment|post ([upvote_favs
 
 == Installation ==
 
-1. Upload casepress-upvote.zip and unzip this into the `/wp-content/plugins/` directory
+1. Upload master.zip and unzip this into the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
