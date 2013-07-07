@@ -67,8 +67,9 @@
 								});
 							break
 						}
-						
-						theCount.html(response.counttext);
+						theCount.each(function() {
+							$(this).html(response.counttext);
+						});
 					}
 				});
 			

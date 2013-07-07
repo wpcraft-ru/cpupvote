@@ -217,7 +217,7 @@ if (!class_exists('CpUpvote')) {
 			$content .= '<div class="upvote"><div class="upvote-frame"><a href="#" '.$do.' rel="'.$type.'_'.$id.'" class="upvote upvote-'.$type.'-'.$id.' upvote-'.$type.' '.($check_rate == 1 ? 'upvoted' : '').'"></a><span class="count count-'.$type.'-'.$id.'">'.$count.'</span>'.(!get_option('upvote_dislikes') ? '<a href="#" '.$do.' rel="'.$type.'_'.$id.'" class="downvote downvote-'.$type.'-'.$id.' upvote-'.$type.' '.($check_rate == -1 ? 'downvoted' : '').'"></a>' : '').'<a '.$do.' href="#" rel="'.$type.'_'.$id.'" class="star star-'.$type.'-'.$id.' upvote-'.$type.' '.($check_star ? 'starred' : '').'"></a></div></div>';
 			$content .= '<div class="g-hidden">
 							<div class="box-modal" id="registerModal">
-							' . get_option('just_like_no_auth') . '
+							' . get_option('upvote_no_auth') . '
 								<div class="box-modal_close arcticmodal-close">закрыть</div>
 							</div>
 						</div>';
