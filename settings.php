@@ -49,7 +49,7 @@ class UpVoteSettings {
 
 		add_settings_field(   
 			'upvote_posts',	// ID used to identify the field throughout the theme  
-			__('Allow to assess posts', 'upvote'),	// The label to the left of the option interface element  
+			__('Add upvote to posts', 'upvote'),	// The label to the left of the option interface element  
 			array($this,'upvote_posts_callback'),	// The name of the function responsible for rendering the option interface  
 			$this->settingOptionPage,	// The page on which this option will be displayed  
 			'upvote_options_plugin_section',	// The name of the section to which this field belongs  
@@ -67,7 +67,7 @@ class UpVoteSettings {
 		
 		add_settings_field(   
 			'upvote_comments',	// ID used to identify the field throughout the theme  
-			__('Allow to assess comments', 'upvote'),	// The label to the left of the option interface element  
+			__('Add upvote to comments', 'upvote'),	// The label to the left of the option interface element  
 			array($this,'upvote_comments_callback'),	// The name of the function responsible for rendering the option interface  
 			$this->settingOptionPage,	// The page on which this option will be displayed  
 			'upvote_options_plugin_section',	// The name of the section to which this field belongs  
@@ -120,7 +120,7 @@ class UpVoteSettings {
 	}
 	function upvote_no_auth_callback()
 	{
-		echo '<input name="upvote_no_auth" type="text" value="' . get_option('just_like_no_auth') . '" />';
+		echo '<input name="upvote_no_auth" type="text" value="' . get_option('upvote_no_auth') . '" />';
 	}
 	function printAdminPage(){
 		?>

@@ -23,6 +23,8 @@ if (!class_exists('CpUpvote')) {
 			$this->pluginPath = dirname(__FILE__);
 			$this->pluginUrl = WP_PLUGIN_URL . '/cpupvote';
 			
+			load_plugin_textdomain('upvote', false, basename($this->pluginPath).'/languages' );
+			
 			$this->actions();
 			
 			new UpVoteSettings();
@@ -44,13 +46,13 @@ if (!class_exists('CpUpvote')) {
 			if (get_option('upvote_posts'))
 			{
 				add_filter('the_content', array($this, 'upvote_post_filter'));
-				add_action('wp_ajax_upvote_post', array($this, 'upvote_post'));
 			}
 			if (get_option('upvote_comments'))
 			{
 				add_filter('comment_text', array($this, 'upvote_comment_filter'));
-				add_action('wp_ajax_upvote_comment', array($this, 'upvote_comment'));
 			}
+			add_action('wp_ajax_upvote_post', array($this, 'upvote_post'));
+			add_action('wp_ajax_upvote_comment', array($this, 'upvote_comment'));
 		}
 		function upvote_shortcode($atts)
 		{	
@@ -327,7 +329,6 @@ if (!class_exists('CpUpvote')) {
 								$count += $comment->comment_content;
 							}
 							$response['counttext'] = $count;
-							$response['ID'] = $com[0]->comment_ID;
 						}else{
 							$response = array('success' => false);
 						}
@@ -448,7 +449,6 @@ if (!class_exists('CpUpvote')) {
 								$count += $comment->comment_content;
 							}
 							$response['counttext'] = $count;
-							$response['ID'] = $com[0]->comment_ID;
 						}else{
 							$response = array('success' => false);
 						}

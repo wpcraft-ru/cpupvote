@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CasePress UpVote\n"
-"POT-Creation-Date: 2013-07-06 20:47+0600\n"
-"PO-Revision-Date: 2013-07-06 20:50+0600\n"
+"POT-Creation-Date: 2013-07-07 18:17+0600\n"
+"PO-Revision-Date: 2013-07-07 18:18+0600\n"
 "Last-Translator: \n"
 "Language-Team: Rasko <trasyhoob@gmail.com>\n"
 "Language: ru_RU\n"
@@ -15,47 +15,47 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: D:\\Repo\\cpupvote\n"
 
-#: D:\Repo\cpupvote/cpupvote.php:92
+#: D:\Repo\cpupvote/cpupvote.php:119
 msgid "Posts: "
-msgstr "Посты: "
+msgstr ""
 
-#: D:\Repo\cpupvote/cpupvote.php:96
+#: D:\Repo\cpupvote/cpupvote.php:123
 msgid "Comments: "
-msgstr "Комментарии: "
+msgstr ""
 
 #: D:\Repo\cpupvote/settings.php:31
 msgid "Setting UpVote Plugin"
-msgstr "Настройки UpVote Плагина"
+msgstr ""
 
 #: D:\Repo\cpupvote/settings.php:45
 msgid "Genetal Settings"
-msgstr "Основные настройки"
+msgstr ""
 
 #: D:\Repo\cpupvote/settings.php:52
-msgid "Allow to assess posts"
-msgstr "Разрешить оценивать посты"
+msgid "Add upvote to posts"
+msgstr ""
 
 #: D:\Repo\cpupvote/settings.php:61
 msgid ""
 "Types of posts, which allowed to assess, separated by commas (blank = all)"
-msgstr "Типы постов разрешенных для оценки (пустое поле = все)"
+msgstr ""
 
 #: D:\Repo\cpupvote/settings.php:70
-msgid "Allow to assess comments"
-msgstr "Разрешить оценивать комментарии"
+msgid "Add upvote to comments"
+msgstr ""
 
 #: D:\Repo\cpupvote/settings.php:79
 msgid "Disable dislikes"
-msgstr "Запретить отрицательные оценки"
+msgstr ""
 
 #: D:\Repo\cpupvote/settings.php:88
 msgid "Text of box for unregistered users"
-msgstr "Текск всплывающего окна для незарегистрированных пользователей"
+msgstr ""
 
 #: D:\Repo\cpupvote/settings.php:103
 msgid "You can enable or disable the UpVote buttons where needed"
-msgstr "Вы можете включить или отключить систему Upvote там где нужно"
+msgstr ""
 
 #: D:\Repo\cpupvote/settings.php:128
 msgid "Upvote Settings"
-msgstr "Настройки Upvote"
+msgstr ""
