@@ -1,4 +1,4 @@
-**Screanshots**
+**Screenshots**
 based on http://janosgyerik.github.io/jquery-upvote/
 
 **Installation**
