@@ -55,10 +55,33 @@ if (!class_exists('CpUpvote')) {
 		function upvote_shortcode($atts)
 		{	
 			extract(shortcode_atts(array(
-				"post" => get_the_ID()
+				"post" => ''
 			), $atts));
-			$id = $post;
-			$count = 0;
+			
+			$count = $check_rate = $check_star = $logged_in = 0;
+			$content = '';
+			
+			if ($post <= 0 || $post == '') {$id = get_the_ID();}
+			else {$id = $post;}
+			//$id = get_the_ID();
+			
+			$type = get_post_type($id);
+			$accepted = preg_replace('/\s/', '', get_option('upvote_posts_like_accepted'));
+			if ($accepted)	{
+				$accepted = explode(",", $accepted);
+				if(!in_array($type, $accepted)) return $content;
+			}
+			if (is_user_logged_in()) {
+				$logged_in = 1;
+
+				$comments = get_comments(array(
+					'post_id' => $id,
+					'type' => 'like',
+					'user_id' => get_current_user_id()
+				));
+				$check_rate = $comments[0]->comment_content;
+				$check_star = in_array($id, get_user_meta(get_current_user_id(), '_upvote_post'));
+			}
 			$comments = get_comments(array(
 					'post_id' => $id,
 					'type' => 'like'
@@ -66,7 +89,7 @@ if (!class_exists('CpUpvote')) {
 			foreach($comments as $comment){
 				$count += $comment->comment_content;
 			}
-			return $count;
+			return $this->generate_button($logged_in, 'post', $content, $check_rate, $check_star, $id, $count);
 		}
 		function upvote_favs_shortcode($atts)
 		{
@@ -75,33 +98,35 @@ if (!class_exists('CpUpvote')) {
 				"type" => 'all',
 			), $atts));
 			
-			$return_post = $return_comments = '';
-			$fav_posts = get_user_meta($user, '_upvote_post');
-			foreach ($fav_posts as $value){
-				$return_post .= $value.', ';
-			}
-			$return_post = substr($return_post, 0, -2);
+			$return_post = $return_comments = $return = '';
 			
-			$fav_comments = get_user_meta($user, '_upvote_comment');
-			foreach ($fav_comments as $value){
-				$return_comments .= $value.', ';
-			}
-			$return_comments = substr($return_comments, 0, -2);
-			
-			if (($type == 'post' || $type == 'all') && $return_post != ''){
-				$return = __('Posts: ', 'upvote').$return_post;
-			}
-			
-			if (($type == 'comments' || $type == 'all') && $return_comments != ''){
-				$return_comments = __('Comments: ', 'upvote').$return_comments; 
-				if ($type == 'all'){ 
-					$return .= ' <br />'.$return_comments; 
+			if ($user != '' || $user != 0) {
+				$fav_posts = get_user_meta($user, '_upvote_post');
+				foreach ($fav_posts as $value){
+					$return_post .= $value.', ';
 				}
-				else {
-					return $return_comments;
+				$return_post = substr($return_post, 0, -2);
+				
+				$fav_comments = get_user_meta($user, '_upvote_comment');
+				foreach ($fav_comments as $value){
+					$return_comments .= $value.', ';
+				}
+				$return_comments = substr($return_comments, 0, -2);
+				
+				if (($type == 'post' || $type == 'all') && $return_post != ''){
+					$return = __('Posts: ', 'upvote').$return_post;
+				}
+				
+				if (($type == 'comments' || $type == 'all') && $return_comments != ''){
+					$return_comments = __('Comments: ', 'upvote').$return_comments; 
+					if ($type == 'all'){ 
+						$return .= ' <br />'.$return_comments; 
+					}
+					else {
+						return $return_comments;
+					}
 				}
 			}
-			
 			return $return;
 		}
 		function list_comments($comments='')
@@ -186,12 +211,13 @@ if (!class_exists('CpUpvote')) {
 			}
 			return $this->generate_button($logged_in, 'comment', $content, $check_rate, $check_star, $id, $count);
 		}
-		function generate_button($logged_in, $type, $content, $check_rate, $check_star, $id, $count)
+		function generate_button($logged_in, $type, $content = '', $check_rate, $check_star, $id, $count)
 		{
 			if ($logged_in == 0) $do = 'onclick="jQuery(\'#registerModal\').arcticmodal()"';
-			$content .= '<div class="upvote"><div class="upvote-frame"><a href="#" '.$do.' rel="'.$type.'_'.$id.'" class="upvote upvote-'.$type.' '.($check_rate == 1 ? 'upvoted' : '').'"></a><span id="count_'.$type.'_'.$id.'" class="count">'.$count.'</span>'.(!get_option('upvote_dislikes') ? '<a href="#" '.$do.' rel="'.$type.'_'.$id.'" class="downvote upvote-'.$type.' '.($check_rate == -1 ? 'downvoted' : '').'"></a>' : '').'<a '.$do.' href="#" rel="'.$type.'_'.$id.'" class="star upvote-'.$type.' '.($check_star ? 'starred' : '').'"></a></div></div>';
+			$content .= '<div class="upvote"><div class="upvote-frame"><a href="#" '.$do.' rel="'.$type.'_'.$id.'" class="upvote upvote-'.$type.'-'.$id.' upvote-'.$type.' '.($check_rate == 1 ? 'upvoted' : '').'"></a><span class="count count-'.$type.'-'.$id.'">'.$count.'</span>'.(!get_option('upvote_dislikes') ? '<a href="#" '.$do.' rel="'.$type.'_'.$id.'" class="downvote downvote-'.$type.'-'.$id.' upvote-'.$type.' '.($check_rate == -1 ? 'downvoted' : '').'"></a>' : '').'<a '.$do.' href="#" rel="'.$type.'_'.$id.'" class="star star-'.$type.'-'.$id.' upvote-'.$type.' '.($check_star ? 'starred' : '').'"></a></div></div>';
 			$content .= '<div class="g-hidden">
 							<div class="box-modal" id="registerModal">
+							' . get_option('just_like_no_auth') . '
 								<div class="box-modal_close arcticmodal-close">закрыть</div>
 							</div>
 						</div>';

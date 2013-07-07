@@ -22,10 +22,9 @@
 					break
 				}
 				
-				var theLink = $(this);
 				var relLikeLink = $(this).attr('rel');
 				var postId = parseInt(relLikeLink.split('_')[1]);
-				var theCount = $('#count_post_'+postId);
+				var theCount = $('.count-post-'+postId);
 				$.post(ajaxurl, {
 				action:	'upvote_post',
 				post_id:	postId,
@@ -36,24 +35,36 @@
 
 						switch (actionButton) {
 							case 'upvote':
-								theLink.addClass('upvoted');
-								theLink.siblings('.downvoted').removeClass('downvoted');
+								$('.upvote-post-'+postId).each(function() {
+									$(this).addClass('upvoted');
+									$(this).siblings('.downvoted').removeClass('downvoted');
+								});
 							break
 							case 'downvote':
-								theLink.addClass('downvoted');
-								theLink.siblings('.upvoted').removeClass('upvoted');
+								$('.downvote-post-'+postId).each(function() {
+									$(this).addClass('downvoted');
+									$(this).siblings('.upvoted').removeClass('upvoted');
+								});
 							break
 							case 'star':
-								theLink.addClass('starred');
+								$('.star-post-'+postId).each(function() {
+									$(this).addClass('starred');
+								});
 							break
 							case 'upvoted':
-								theLink.removeClass('upvoted');
+								$('.upvote-post-'+postId).each(function() {
+									$(this).removeClass('upvoted');
+								});
 							break
 							case 'downvoted':
-								theLink.removeClass('downvoted');
+								$('.downvote-post-'+postId).each(function() {
+									$(this).removeClass('downvoted');
+								});
 							break
 							case 'starred':
-								theLink.removeClass('starred');
+								$('.star-post-'+postId).each(function() {
+									$(this).removeClass('starred');
+								});
 							break
 						}
 						
@@ -87,7 +98,7 @@
 				var theLink = $(this);
 				var relLikeLink = $(this).attr('rel');
 				var commentId = parseInt(relLikeLink.split('_')[1]);
-				var theCount = $('#count_comment_'+commentId);
+				var theCount = $('.count-comment-'+commentId);
 				$.post(ajaxurl, {
 				action:	'upvote_comment',
 				comment_id:	commentId,
