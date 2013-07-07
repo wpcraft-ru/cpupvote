@@ -20,4 +20,4 @@ etc
 takes 2 arguments - 'user' - USER_ID and 'type' - all|comment|post ([upvote_favs user=56 type=post])
 
 **Support**
-http://casepress.org
+http://casepress.org/support/
