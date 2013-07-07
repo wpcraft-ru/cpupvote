@@ -35,6 +35,8 @@ if (!class_exists('CpUpvote')) {
 			add_action('wp_print_scripts', array($this, 'register_plugin_scripts'));
 			add_action('wp_print_styles', array($this, 'register_plugin_styles'));
 			
+			add_filter('widget_text', 'do_shortcode');
+			
 			add_shortcode('upvote', array($this, 'upvote_shortcode'));
 			add_shortcode('upvote_favs', array($this, 'upvote_favs_shortcode'));
 			
