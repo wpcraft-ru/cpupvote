@@ -1,3 +1,6 @@
+**Screanshots**
+based on http://janosgyerik.github.io/jquery-upvote/
+
 **Installation**
 
 1. Upload plugin to your site on WordPress
