@@ -28,7 +28,7 @@ class UpVoteSettings {
 	// Пункта в настройках будет достаточно.... создадим....
 	function create_admin_page_option() 
 	{
-		add_options_page(__('Setting UpVote Plugin', 'upvote'), 'UpVote', 8, $this->settingOptionPage, array ($this, 'printAdminPage'));
+		add_options_page(__('Setting UpVote Plugin', 'upvote'), 'UpVote', 'manage_options', $this->settingOptionPage, array ($this, 'printAdminPage'));
 	}
 	
 	function setup_plugin_options() 
@@ -37,7 +37,7 @@ class UpVoteSettings {
 		add_option('upvote_comments', 1);
 		add_option('upvote_dislikes', 0);
 		add_option('upvote_posts_like_accepted', '');
-		if (FALSE == get_option('upvote_no_auth')) { add_option( "upvote_no_auth", "<a href='$siteurl/wp-login.php?action=register'>Register</a> or <a href='$siteurl/wp-login.php'>log in</a> to assess the record"); }
+		if (FALSE == get_option('upvote_no_auth')) { add_option( "upvote_no_auth", "<a href='/wp-login.php?action=register'>Register</a> or <a href='/wp-login.php'>log in</a> to assess the record"); }
 		
 		//  Сначала создаём секцию.
 		add_settings_section(
@@ -122,19 +122,16 @@ class UpVoteSettings {
 	{
 		echo '<input name="upvote_no_auth" type="text" value="' . get_option('upvote_no_auth') . '" />';
 	}
-	function printAdminPage(){
-		?>
+	function printAdminPage(){ ?>
 		<div class=wrap>
-			<h2><?php _e('Upvote Settings', 'upvote'); ?></h2>
-			  
+			<h2><?php _e('Upvote Settings', 'upvote');?></h2>
+			 
 			<form method="post" action="options.php">  
-				<?php settings_fields('upvote_options_plugin_section'); ?>  
-				<?php do_settings_sections( $this->settingOptionPage ); ?>             
-				<?php submit_button(); ?> 
-			</form>
+				<?php settings_fields('upvote_options_plugin_section');?>
+				<?php do_settings_sections( $this->settingOptionPage );?>
+				<?php submit_button();?></form>
 		</div>
-		<?php
-	}
+		<?php }
 }
 
 ?>

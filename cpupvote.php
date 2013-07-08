@@ -244,6 +244,7 @@ if (!class_exists('CpUpvote')) {
 								'type' => 'like'
 						));
 						$check = $comments[0]->comment_content;		
+						$time = current_time('mysql');
 						switch($_POST['actionButton']){
 							case 'upvote':
 								if (isset($check) && $check == 1) die();
@@ -265,7 +266,7 @@ if (!class_exists('CpUpvote')) {
 										'user_id' => get_current_user_id(),  
 										'comment_author_IP' => '',  
 										'comment_agent' => '',  
-										'comment_date' => '',  
+										'comment_date' => $time,  
 										'comment_approved' => 1 
 									));	
 								}
@@ -299,7 +300,7 @@ if (!class_exists('CpUpvote')) {
 										'user_id' => get_current_user_id() ,  
 										'comment_author_IP' => '',  
 										'comment_agent' => '',  
-										'comment_date' => '',  
+										'comment_date' => $time,  
 										'comment_approved' => 1 
 									));	
 								}
@@ -363,7 +364,8 @@ if (!class_exists('CpUpvote')) {
 								'parent' => $_POST['comment_id'],
 								'type' => 'like'
 						));			
-						$check = $comments[0]->comment_content;		
+						$check = $comments[0]->comment_content;
+						$time = current_time('mysql');						
 						switch($_POST['actionButton']){
 							case 'upvote':
 								if (isset($check) && $check == 1) die();
@@ -385,7 +387,7 @@ if (!class_exists('CpUpvote')) {
 										'user_id' => get_current_user_id() ,  
 										'comment_author_IP' => '',  
 										'comment_agent' => '',  
-										'comment_date' => '',  
+										'comment_date' => $time,  
 										'comment_approved' => 1 
 									));	
 								}
@@ -419,7 +421,7 @@ if (!class_exists('CpUpvote')) {
 										'user_id' => get_current_user_id() ,  
 										'comment_author_IP' => '',  
 										'comment_agent' => '',  
-										'comment_date' => '',  
+										'comment_date' => $time,  
 										'comment_approved' => 1 
 									));	
 								}
