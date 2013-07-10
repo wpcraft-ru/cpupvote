@@ -21,7 +21,7 @@ if (!class_exists('CpUpvote')) {
 		function CpUpvote()
 		{
 			$this->pluginPath = dirname(__FILE__);
-			$this->pluginUrl = WP_PLUGIN_URL . '/cpupvote';
+			$this->pluginUrl = plugin_dir_url(__FILE__);
 			
 			load_plugin_textdomain('upvote', false, basename($this->pluginPath).'/languages' );
 			
@@ -217,6 +217,7 @@ if (!class_exists('CpUpvote')) {
 		}
 		function generate_button($logged_in, $type, $content = '', $check_rate, $check_star, $id, $count)
 		{
+			$do = '';
 			if ($logged_in == 0) $do = 'onclick="jQuery(\'#registerModal\').arcticmodal()"';
 			$content .= '<div class="upvote"><div class="upvote-frame"><a href="#" '.$do.' rel="'.$type.'_'.$id.'" class="upvote upvote-'.$type.'-'.$id.' upvote-'.$type.' '.($check_rate == 1 ? 'upvoted' : '').'"></a><span class="count count-'.$type.'-'.$id.'">'.$count.'</span>'.(!get_option('upvote_dislikes') ? '<a href="#" '.$do.' rel="'.$type.'_'.$id.'" class="downvote downvote-'.$type.'-'.$id.' upvote-'.$type.' '.($check_rate == -1 ? 'downvoted' : '').'"></a>' : '').'<a '.$do.' href="#" rel="'.$type.'_'.$id.'" class="star star-'.$type.'-'.$id.' upvote-'.$type.' '.($check_star ? 'starred' : '').'"></a></div></div>';
 			$content .= '<div class="g-hidden">
