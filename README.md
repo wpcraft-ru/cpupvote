@@ -1,5 +1,13 @@
 **Screenshots**
+
+![screenshot1](https://raw.github.com/casepress-studio/cpupvote/master/screenshot1.png "Screenshot 1")
+
 based on http://janosgyerik.github.io/jquery-upvote/
+
+**Demo**
+
+http://casepress.org/kb/web/
+
 
 **Installation**
 
