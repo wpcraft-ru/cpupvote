@@ -1,6 +1,11 @@
 **Screenshots**
 based on http://janosgyerik.github.io/jquery-upvote/
 
+**Demo**
+
+http://casepress.org/kb/web/
+
+
 **Installation**
 
 1. Upload plugin to your site on WordPress
