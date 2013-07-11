@@ -83,7 +83,8 @@ if (!class_exists('CpUpvote')) {
 					'type' => 'like',
 					'user_id' => get_current_user_id()
 				));
-				$check_rate = $comments[0]->comment_content;
+				if(!empty($comments))
+					$check_rate = $comments[0]->comment_content;
 				$check_star = in_array($id, get_user_meta(get_current_user_id(), '_upvote_post'));
 			}
 			$comments = get_comments(array(
@@ -178,7 +179,8 @@ if (!class_exists('CpUpvote')) {
 					'type' => 'like',
 					'user_id' => get_current_user_id()
 				));
-				$check_rate = $comments[0]->comment_content;
+				if(!empty($comments))
+					$check_rate = $comments[0]->comment_content;
 				$check_star = in_array($id, get_user_meta(get_current_user_id(), '_upvote_post'));
 			}
 			$comments = get_comments(array(
@@ -203,7 +205,8 @@ if (!class_exists('CpUpvote')) {
 					'type' => 'like',
 					'user_id' => get_current_user_id()
 				));
-				$check_rate = $comments[0]->comment_content;
+				if(!empty($comments))
+					$check_rate = $comments[0]->comment_content;
 				$check_star = in_array($id, get_user_meta(get_current_user_id(), '_upvote_comment'));
 			}
 			$comments = get_comments(array(
