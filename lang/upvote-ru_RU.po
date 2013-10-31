@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: upvote\n"
+"POT-Creation-Date: 2013-10-31 16:32+0600\n"
+"PO-Revision-Date: 2013-10-31 16:37+0600\n"
+"Last-Translator: \n"
+"Language-Team: Kochnev Dmitry <trasyhoob@gmail.com>\n"
+"Language: ruRU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: D:\\Wamp\\www\\wp-content\\plugins\\casepress-upvote\n"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/casepress-upvote.php:88
+msgid "Up Vote Post"
+msgstr "Поднять рейтинг поста"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/casepress-upvote.php:102
+msgid "Down Vote Post"
+msgstr "Опустить рейтинг поста"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/casepress-upvote.php:108
+msgid "Favorite Post"
+msgstr "Сделать пост избранным"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/casepress-upvote.php:126
+msgid "Up Vote Comment"
+msgstr "Поднять рейтинг комментария"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/casepress-upvote.php:140
+msgid "Down Vote comment"
+msgstr "Опустить рейтинг комментария"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/casepress-upvote.php:146
+msgid "Favorite Comment"
+msgstr "Сделать комментарий избранным"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/casepress-upvote.php:206
+msgid "Close"
+msgstr "Закрыть"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/casepress-upvote.php:499
+msgid "Posts: "
+msgstr "Посты: "
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/casepress-upvote.php:503
+msgid "Comments: "
+msgstr "Комментарии: "
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:36
+msgid "Upvote Plugin Settings"
+msgstr "Настройки плагина Upvote"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:36
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:42
+msgid "Upvote Settings"
+msgstr "Настройки Upvote"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:48
+msgid "Accept posts likes"
+msgstr "Разрешить оценивать посты"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:51
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:62
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:73
+msgid "Disallow"
+msgstr "Запретить"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:53
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:64
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:75
+msgid "Allow"
+msgstr "Разрешить"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:59
+msgid "Accept comments likes"
+msgstr "Разрешить оценивать комментарии"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:70
+msgid "Accept Dislikes"
+msgstr "Разрешить отрицательные оценки"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:81
+msgid "Buttons Position for Posts"
+msgstr "Позиция кнопок для постов"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:85
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:98
+msgid "Top"
+msgstr "Сверху"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:86
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:99
+msgid "Left"
+msgstr "Слева"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:87
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:100
+msgid "Right"
+msgstr "Справа"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:88
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:101
+msgid "Bottom"
+msgstr "Снизу"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:94
+msgid "Buttons Position for Comments"
+msgstr "Позиция кнопок для комментариев"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:107
+msgid "Select Buttons Style"
+msgstr "Выбрать стиль кнопок"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:134
+msgid "Select Modals Style"
+msgstr "Выбрать стиль модальных окон"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:149
+msgid "Message for not Authorized Users"
+msgstr "Сообщение для неавторизованного пользователя"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:157
+msgid ""
+"Shortcode return's upvote buttons for posts or comments, if attributes is "
+"blank - ids get's automaticly"
+msgstr ""
+"Шорткод возвращает кнопки голосования за посты или комментарии, принимает в "
+"качестве аргументов айди поста или коммента, если пусто - определяется "
+"автоматически"
+
+#: D:\Wamp\www\wp-content\plugins\casepress-upvote/settings.php:162
+msgid ""
+"Shorcode return's ids of favorited posts|comments|posts&comments, if "
+"attributes is blank - type = all"
+msgstr ""
+"Шорткод возвращает айди избранных постов | комментариев | постов и "
+"комментариев, если атрибут тип пустой - возвращается для постов и "
+"комментариев"
+
+#~ msgid "Up Vote"
+#~ msgstr "Отдать положительный голос"

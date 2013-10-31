@@ -1,0 +1,126 @@
+.casepress-left td, .casepress-right td {
+	border: none !important;
+	padding: 0 !important;
+	vertical-align: top !important;
+}
+.casepress-left, .casepress-right {
+	width:100%;
+	border: none !important;
+}
+.casepress-left span, .casepress-right span {
+	padding-top: 2px;
+	color: #555;
+	font-size: 24px;
+	display: block;
+	font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
+	line-height: 1;
+}
+.casepress-left .casepress-vote-box, .casepress-right .casepress-vote-box{
+	width: 60px;
+	height: 107px;
+}
+.casepress-votecell{
+	width: 60px !important;
+	text-align: center !important;
+}
+.casepress-left .casepress-upvote-vote-up, .casepress-right .casepress-upvote-voted-up, .casepress-left .casepress-upvote-voted-up, .casepress-right .casepress-upvote-vote-up, 
+.casepress-left .casepress-upvote-vote-down, .casepress-right .casepress-upvote-vote-down, .casepress-left .casepress-upvote-voted-down, .casepress-right .casepress-upvote-voted-down{
+	text-indent: -9999em;
+	font-size: 1px;
+	display: block;
+	margin: 0 auto;
+	width: 41px;
+	height: 25px;
+	background-image: url('sprites-stackoverflow.png');
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+ .casepress-left .casepress-upvote-star, .casepress-right .casepress-upvote-star{
+	display: block;
+	margin: 0 auto;
+	background-position: 0px -150px;
+	width: 33px;
+	height: 31px;
+	text-indent: -9999em;
+	font-size: 1px;
+	background-image: url('sprites-stackoverflow.png');
+	background-repeat: no-repeat;
+	overflow: hidden;
+ }
+ .casepress-left .casepress-upvote-starred, .casepress-right .casepress-upvote-starred{
+	display: block;
+	margin: 0 auto;
+	background-position: 0px -190px;
+	width: 33px;
+	height: 31px;
+	text-indent: -9999em;
+	font-size: 1px;
+	background-image: url('sprites-stackoverflow.png');
+	background-repeat: no-repeat;
+	overflow: hidden;
+ }
+.casepress-left .casepress-upvote-vote-up, .casepress-right .casepress-upvote-vote-up, .casepress-top .casepress-upvote-vote-up, .casepress-bottom .casepress-upvote-vote-up{
+	background-position: 0px -265px;
+}
+.casepress-left .casepress-upvote-voted-up, .casepress-right .casepress-upvote-voted-up, .casepress-top .casepress-upvote-voted-up, .casepress-bottom .casepress-upvote-voted-up{
+	background-position: 0px -230px;
+}
+.casepress-left .casepress-upvote-vote-down, .casepress-right .casepress-upvote-vote-down, .casepress-top .casepress-upvote-vote-down, .casepress-bottom .casepress-upvote-vote-down{
+	background-position: 0px -300px;
+}
+.casepress-left .casepress-upvote-voted-down, .casepress-right .casepress-upvote-voted-down, .casepress-top .casepress-upvote-voted-down, .casepress-bottom .casepress-upvote-voted-down{
+	background-position: 0px -330px;
+}
+.casepress-top .casepress-vote-box, .casepress-bottom .casepress-vote-box{
+	margin-left: auto;
+}
+.casepress-top .casepress-upvote-vote-up, .casepress-bottom .casepress-upvote-voted-up, .casepress-top .casepress-upvote-voted-up, .casepress-bottom .casepress-upvote-vote-up, 
+.casepress-top .casepress-upvote-vote-down, .casepress-bottom .casepress-upvote-vote-down, .casepress-top .casepress-upvote-voted-down, .casepress-bottom .casepress-upvote-voted-down{
+	text-indent: -9999em;
+	font-size: 1px;
+	display: block;
+	float:left;
+	width: 41px;
+	height: 25px;
+	background-image: url('sprites-stackoverflow.png');
+	background-repeat: no-repeat;
+	overflow: hidden;
+}
+ .casepress-top .casepress-upvote-star, .casepress-bottom .casepress-upvote-star{
+	float:left;
+	display: block;
+	background-position: 0px -150px;
+	width: 33px;
+	height: 31px;
+	text-indent: -9999em;
+	font-size: 1px;
+	background-image: url('sprites-stackoverflow.png');
+	background-repeat: no-repeat;
+	overflow: hidden;
+ }
+ .casepress-top .casepress-upvote-starred, .casepress-bottom .casepress-upvote-starred{
+	float:left;
+	display: block;
+	background-position: 0px -190px;
+	width: 33px;
+	height: 31px;
+	text-indent: -9999em;
+	font-size: 1px;
+	background-image: url('sprites-stackoverflow.png');
+	background-repeat: no-repeat;
+	overflow: hidden;
+ }
+ .casepress-top span, .casepress-bottom span {
+	padding-top: 2px;
+	float:left;
+	color: #555;
+	font-size: 24px;
+	display: block;
+	font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
+	line-height: 1;
+}
+.casepress-top .casepress-vote-box, .casepress-bottom .casepress-vote-box{
+	width: 150px;
+	height: 33px;
+}
+

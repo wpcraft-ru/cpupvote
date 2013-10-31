@@ -1,137 +1,175 @@
 <?php
 
-// Stop direct call
-if (!empty($_SERVER['SCRIPT_FILENAME']) && basename(__file__) == basename($_SERVER['SCRIPT_FILENAME']))
-	die ('Please do not load this page directly. Thanks!');
-	
-class UpVoteSettings {
-	
-	var $settingOptionPage;
-	// Конструктор объекта
-	function UpVoteSettings()
-	{
-		$this->init();
-		$this->actions();
-	}
-		
-	function init()
-	{
-		$this->settingOptionPage = "upvote_options";
-	}
-	
-	function actions() 
-	{
-		add_action('admin_menu', array($this,'create_admin_page_option'));
-		add_action('admin_init', array($this,'setup_plugin_options'));
-	}
-	
-	// Пункта в настройках будет достаточно.... создадим....
-	function create_admin_page_option() 
-	{
-		add_options_page(__('Setting UpVote Plugin', 'upvote'), 'UpVote', 'manage_options', $this->settingOptionPage, array ($this, 'printAdminPage'));
-	}
-	
-	function setup_plugin_options() 
-	{
-		add_option('upvote_posts', 1);
-		add_option('upvote_comments', 1);
-		add_option('upvote_dislikes', 0);
-		add_option('upvote_posts_like_accepted', '');
-		if (FALSE == get_option('upvote_no_auth')) { add_option( "upvote_no_auth", "<a href='/wp-login.php?action=register'>Register</a> or <a href='/wp-login.php'>log in</a> to assess the record"); }
-		
-		//  Сначала создаём секцию.
-		add_settings_section(
-			'upvote_options_plugin_section',	
-			__('Genetal Settings', 'upvote'),
-			array($this,'description_upvote_settings_section_callback'),
-			$this->settingOptionPage
-		); 
+class CasePressUpVoteSettings {
 
-		add_settings_field(   
-			'upvote_posts',	// ID used to identify the field throughout the theme  
-			__('Add upvote to posts', 'upvote'),	// The label to the left of the option interface element  
-			array($this,'upvote_posts_callback'),	// The name of the function responsible for rendering the option interface  
-			$this->settingOptionPage,	// The page on which this option will be displayed  
-			'upvote_options_plugin_section',	// The name of the section to which this field belongs  
-			array()	// Arg  
-		); 
-		
-		add_settings_field(   
-			'upvote_like_accepted',	// ID used to identify the field throughout the theme  
-			__('Types of posts, which allowed to assess, separated by commas (blank = all)'),	// The label to the left of the option interface element  
-			array($this,'upvote_posts_like_accepted_callback'),	// The name of the function responsible for rendering the option interface  
-			$this->settingOptionPage,	// The page on which this option will be displayed  
-			'upvote_options_plugin_section',	// The name of the section to which this field belongs  
-			array()	// Arg  
-		); 
-		
-		add_settings_field(   
-			'upvote_comments',	// ID used to identify the field throughout the theme  
-			__('Add upvote to comments', 'upvote'),	// The label to the left of the option interface element  
-			array($this,'upvote_comments_callback'),	// The name of the function responsible for rendering the option interface  
-			$this->settingOptionPage,	// The page on which this option will be displayed  
-			'upvote_options_plugin_section',	// The name of the section to which this field belongs  
-			array()	// Arg  
-		);
-		
-		add_settings_field(   
-			'upvote_dislikes',	// ID used to identify the field throughout the theme  
-			__('Disable dislikes', 'upvote'),	// The label to the left of the option interface element  
-			array($this,'upvote_dislikes_callback'),	// The name of the function responsible for rendering the option interface  
-			$this->settingOptionPage,	// The page on which this option will be displayed  
-			'upvote_options_plugin_section',	// The name of the section to which this field belongs  
-			array()	// Arg  
-		);
-		
-		add_settings_field(   
-			'upvote_no_auth',	// ID used to identify the field throughout the theme  
-			__('Text of box for unregistered users', 'upvote'),	// The label to the left of the option interface element  
-			array(&$this,'upvote_no_auth_callback'),	// The name of the function responsible for rendering the option interface  
-			$this->settingOptionPage,	// The page on which this option will be displayed  
-			'upvote_options_plugin_section',	// The name of the section to which this field belongs  
-			array()	// Arg  
-		); 
-		
-		register_setting('upvote_options_plugin_section', 'upvote_posts');
-		register_setting('upvote_options_plugin_section', 'upvote_posts_like_accepted');
-		register_setting('upvote_options_plugin_section', 'upvote_comments');
-		register_setting('upvote_options_plugin_section', 'upvote_dislikes');
-		register_setting('upvote_options_plugin_section', 'upvote_no_auth');
+	function __construct(){
+		add_action('admin_init', array($this, 'register_casepress_options'));
+		add_action('admin_menu', array($this, 'create_admin_page_option'));
 	}
-	function description_upvote_settings_section_callback()
-	{
-		_e('You can enable or disable the UpVote buttons where needed', 'upvote');
+
+	function CasePressUpVoteSettings(){
+		$this->__construct();
 	}
-	function upvote_posts_callback()
-	{
-		echo "<input name='upvote_posts' type='checkbox' value='1' " . checked( 1, get_option('upvote_posts'), false ) . " />";
+
+	function register_casepress_options(){
+		add_option('casepress-upvote_like-posts', 1);
+		add_option('casepress-upvote_like-comments', 1);
+		add_option('casepress-upvote_dislikes', 1);
+		add_option('casepress-upvote_position-posts', 0);
+		add_option('casepress-upvote_position-comments', 0);
+		add_option('casepress-upvote_buttons-style', 'stackoverflow');
+		add_option('casepress-upvote_modals-style', 'default');
+		if (FALSE === get_option('casepress-upvote_noauth-msg'))
+			add_option( 'casepress-upvote_noauth-msg', "<a href='/wp-login.php?action=register'>Register</a> or <a href='/wp-login.php'>log in</a> to assess the record"); 
+
+		register_setting('casepress-upvote-options-section', 'casepress-upvote_like-posts');
+		register_setting('casepress-upvote-options-section', 'casepress-upvote_like-comments');
+		register_setting('casepress-upvote-options-section', 'casepress-upvote_dislikes');
+		register_setting('casepress-upvote-options-section', 'casepress-upvote_position-posts');
+		register_setting('casepress-upvote-options-section', 'casepress-upvote_position-comments');
+		register_setting('casepress-upvote-options-section', 'casepress-upvote_buttons-style');
+		register_setting('casepress-upvote-options-section', 'casepress-upvote_modals-style');
+		register_setting('casepress-upvote-options-section', 'casepress-upvote_noauth-msg');
 	}
-	function upvote_posts_like_accepted_callback()
-	{
-		echo '<input name="upvote_posts_like_accepted" type="text" value="' . get_option('upvote_posts_like_accepted') . '" />';
+	
+	function create_admin_page_option(){
+		add_options_page(__('Upvote Plugin Settings', 'upvote'), __('Upvote Settings', 'upvote'), 'manage_options', 'casepress-upvote', array ($this, 'render_casepress_options_page'));
 	}
-	function upvote_comments_callback()
-	{
-		echo "<input name='upvote_comments' type='checkbox' value='1' " . checked( 1, get_option('upvote_comments'), false ) . " />";
-	}
-	function upvote_dislikes_callback()
-	{
-		echo "<input name='upvote_dislikes' type='checkbox' value='1' " . checked( 1, get_option('upvote_dislikes'), false ) . " />";
-	}
-	function upvote_no_auth_callback()
-	{
-		echo '<input name="upvote_no_auth" type="text" value="' . get_option('upvote_no_auth') . '" />';
-	}
-	function printAdminPage(){ ?>
-		<div class=wrap>
-			<h2><?php _e('Upvote Settings', 'upvote');?></h2>
-			 
+
+	function render_casepress_options_page(){ 
+	?>
+		<div class="wrap">
+			<h2><?php _e('Upvote Settings', 'upvote'); ?></h2>
 			<form method="post" action="options.php">  
-				<?php settings_fields('upvote_options_plugin_section');?>
-				<?php do_settings_sections( $this->settingOptionPage );?>
-				<?php submit_button();?></form>
+				<?php settings_fields('casepress-upvote-options-section');?>
+				<table>
+					<tr height="30px">
+						<td width="200">
+							<label><?php _e('Accept posts likes', 'upvote'); ?></label>
+						</td>
+						<td width="300">
+							<label><?php _e('Disallow', 'upvote'); ?></label>
+							<input type="radio" name="casepress-upvote_like-posts" value="0" <?php checked( get_option('casepress-upvote_like-posts'), 0 ); ?>/>
+							<label><?php _e('Allow', 'upvote'); ?></label>
+							<input type="radio" name="casepress-upvote_like-posts" value="1" <?php checked( get_option('casepress-upvote_like-posts'), 1 ); ?>/>
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							<label><?php _e('Accept comments likes', 'upvote'); ?></label>
+						</td>
+						<td>
+							<label><?php _e('Disallow', 'upvote'); ?></label>
+							<input type="radio" name="casepress-upvote_like-comments" value="0" <?php checked( get_option('casepress-upvote_like-comments'), 0 ); ?>/>
+							<label><?php _e('Allow', 'upvote'); ?></label>
+							<input type="radio" name="casepress-upvote_like-comments" value="1" <?php checked( get_option('casepress-upvote_like-comments'), 1 ); ?>/>
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							<label><?php _e('Accept Dislikes', 'upvote'); ?></label>
+						</td>
+						<td>
+							<label><?php _e('Disallow', 'upvote'); ?></label>
+							<input type="radio" name="casepress-upvote_dislikes" value="0" <?php checked( get_option('casepress-upvote_dislikes'), 0 ); ?>/>
+							<label><?php _e('Allow', 'upvote'); ?></label>
+							<input type="radio" name="casepress-upvote_dislikes" value="1" <?php checked( get_option('casepress-upvote_dislikes'), 1 ); ?>/>
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							<label for="casepress-upvote_position-posts"><?php _e('Buttons Position for Posts', 'upvote'); ?></label>
+						</td>
+						<td>
+							<select style="width: 156px;" id="casepress-upvote_position-posts" name="casepress-upvote_position-posts">
+								<option value="0" <?php selected( get_option('casepress-upvote_position-posts'), 0 ); ?>><?php _e('Top', 'upvote'); ?></option>
+								<option value="1" <?php selected( get_option('casepress-upvote_position-posts'), 1 ); ?>><?php _e('Left', 'upvote'); ?></option>
+								<option value="2" <?php selected( get_option('casepress-upvote_position-posts'), 2 ); ?>><?php _e('Right', 'upvote'); ?></option>
+								<option value="3" <?php selected( get_option('casepress-upvote_position-posts'), 3 ); ?>><?php _e('Bottom', 'upvote'); ?></option>
+							</select>
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							<label for="casepress-upvote_position-comments"><?php _e('Buttons Position for Comments', 'upvote'); ?></label>
+						</td>
+						<td>
+							<select style="width: 156px;" id="casepress-upvote_position-comments" name="casepress-upvote_position-comments">
+								<option value="0" <?php selected( get_option('casepress-upvote_position-comments'), 0 ); ?>><?php _e('Top', 'upvote'); ?></option>
+								<option value="1" <?php selected( get_option('casepress-upvote_position-comments'), 1 ); ?>><?php _e('Left', 'upvote'); ?></option>
+								<option value="2" <?php selected( get_option('casepress-upvote_position-comments'), 2 ); ?>><?php _e('Right', 'upvote'); ?></option>
+								<option value="3" <?php selected( get_option('casepress-upvote_position-comments'), 3 ); ?>><?php _e('Bottom', 'upvote'); ?></option>
+							</select>
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							<label for="casepress-upvote_buttons-style"><?php _e('Select Buttons Style', 'upvote'); ?></label>
+						</td>
+						<td>
+						<?php
+								/*	$files = array();
+									$dir = plugin_dir_path( __FILE__ ).'/styles/buttons';
+									$dh = opendir($dir);
+									print_R($dir);
+									while (false !== ($filename = readdir($dh))) {
+										$files[] = $filename;
+									}
+									//sort($files);
+									print_R($list);*/
+									
+									?>
+							<select style="width: 156px;" id="casepress-upvote_buttons-style" name="casepress-upvote_buttons-style">
+								<?php
+									$list = scandir(plugin_dir_path( __FILE__ ).'styles/buttons/');
+									unset($list[0], $list[1]);
+									foreach($list as $element){ ?>
+										<option value="<?php echo $element; ?>" <?php selected(  get_option('casepress-upvote_buttons-style'), $element ); ?>><?php echo $element; ?></option>
+									<?php }	?>
+							</select>
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							<label for="casepress-upvote_modals-style"><?php _e('Select Modals Style', 'upvote'); ?></label>
+						</td>
+						<td>
+							<select style="width: 156px;" id="casepress-upvote_modals-style" name="casepress-upvote_modals-style">
+							<?php
+									$list = scandir(plugin_dir_path( __FILE__ ).'styles/modal/');
+									unset($list[0], $list[1]);
+									foreach($list as $element){ ?>
+										<option value="<?php echo $element; ?>" <?php selected(  get_option('casepress-upvote_modals-style'), $element ); ?>><?php echo $element; ?></option>
+									<?php } ?>
+							</select>
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							<label for="casepress-upvote_noauth-msg"><?php _e('Message for not Authorized Users', 'upvote'); ?></label>
+						</td>
+						<td>
+							<input style="width: 296px;" type="text" id="casepress-upvote_noauth-msg" name="casepress-upvote_noauth-msg" value="<?php echo esc_html(get_option('casepress-upvote_noauth-msg')); ?>" />
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							[upvote post="123" comment="2134"] - <?php _e('Shortcode return\'s upvote buttons for posts or comments, if attributes is blank - ids get\'s automaticly', 'upvote'); ?>
+						</td>
+					</tr>
+					<tr height="30px">
+						<td>
+							[upvote_favs type="all | posts | comments"] - <?php _e('Shorcode return\'s ids of favorited posts|comments|posts&comments, if attributes is blank - type = all', 'upvote'); ?>
+						</td>
+					</tr>
+				</table>
+				<?php submit_button();?>
+			</form>
 		</div>
-		<?php }
+	<?php
+	}
+	
 }
 
+new CasePressUpVoteSettings();
 ?>

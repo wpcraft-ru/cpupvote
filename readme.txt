@@ -3,48 +3,51 @@ Contributors: casepress
 Donate link: http://casepress.org/
 Tags: like, plugin
 Requires at least: 3.0.1
-Tested up to: 3.5.2
-Stable tag: 0.1
+Tested up to: 3.7.1
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
 CasePress UpVote - posts and comments rating system.
-[upvote] - shows the ranking of the current post or post which ID is specified
-and takes one argument - 'post' = post ID. ([upvote post=56])
-[upvote_favs] - shows the favorite posts and comments of current user
-takes 2 arguments - 'user' - USER_ID and 'type' - all|comment|post ([upvote_favs user=56 type=post])
+
+[upvote post=123 comment=123] - Shortcode return's upvote buttons for posts or comments, if attributes is blank - ids get's automaticly.
+
+[upvote_favs type=all | posts | comments ] - Shorcode return's ids of favorited posts | comments | posts&comments, if attributes is blank - type = all.
 
 == Installation ==
 
-1. Upload master.zip and unzip this into the `/wp-content/plugins/` directory
+1. Upload and unzip this into the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-
-== Frequently Asked Questions ==
-
--
 
 == Screenshots ==
 
-1. screenshot1.png - shows plugin.
+1. screenshot1.png - shows plugin settings.
+2. screenshot2.png - shows one of buttons positions.
+3. screenshot3.png - shows one of buttons positions.
+4. screenshot4.png - shows one of buttons positions.
+5. screenshot5.png - shows one of buttons positions.
+
+== Frequently Asked Questions ==
+
+Q: Сan I configure the plugin?
+A: Yes, go into Upvote Setting into admin panel.
+
+Q: Сan I configure plugin styles?
+A: Yes, but for it, u need edit styles with specified programm, go into wp-content/plugins/casepress-upvote/styles,
+choose styles what u need, go into custom directory and edit!;)
 
 == Changelog ==
+
+= 1.0.0 =
+* Refactoring code
+* Adding some new functions
+* Adding some new settings
 
 = 0.1 =
 * Initial version
 
-== Upgrade Notice ==
-
-= 0.1 =
--
-
-== Arbitrary section ==
-
--
-
-== A brief Markdown Example ==
-
--
-
-`<?php code(); // goes in backticks ?>`
+ == Upgrade Notice ==
+ 
+ -
