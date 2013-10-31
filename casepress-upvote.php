@@ -70,7 +70,7 @@ class CasePressUpVote {
 		$votebox = $html = '';
 		$count = $now_value = 0;
 		
-		if ((get_option('casepress-upvote_like-posts') == 0 && ($type == 'post')) || (get_option('casepress-upvote_like-comments') == 0 && ($type == 'comment'))) return $html;
+		if ((get_option('casepress-upvote_like-posts') == 0 && ($type == 'post')) || (get_option('casepress-upvote_like-comments') == 0 && ($type == 'comment'))) return $content;
 		
 		$votebox .= '<div class="casepress-vote-box">';
 			if ($type == 'post'){

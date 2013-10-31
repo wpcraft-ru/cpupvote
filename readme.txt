@@ -23,11 +23,11 @@ CasePress UpVote - posts and comments rating system.
 
 == Screenshots ==
 
-1. screenshot1.png - shows plugin settings.
-2. screenshot2.png - shows one of buttons positions.
-3. screenshot3.png - shows one of buttons positions.
-4. screenshot4.png - shows one of buttons positions.
-5. screenshot5.png - shows one of buttons positions.
+1. screenshot-1.png - shows plugin settings.
+2. screenshot-2.png - shows one of buttons positions.
+3. screenshot-3.png - shows one of buttons positions.
+4. screenshot-4.png - shows one of buttons positions.
+5. screenshot-5.png - shows one of buttons positions.
 
 == Frequently Asked Questions ==
 
