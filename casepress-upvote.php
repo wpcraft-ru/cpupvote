@@ -73,6 +73,7 @@ class CasePressUpVote {
 		if ((get_option('casepress-upvote_like-posts') == 0 && ($type == 'post')) || (get_option('casepress-upvote_like-comments') == 0 && ($type == 'comment'))) return $content;
 		
 		$votebox .= '<div class="casepress-vote-box">';
+		$votebox .= '<script type="text/javascript">var ajaxurl = "' . admin_url('admin-ajax.php') . '"</script>';
 			if ($type == 'post'){
 				if(is_numeric($custom_id) && $custom_id>0){
 					$post_id = $custom_id;
