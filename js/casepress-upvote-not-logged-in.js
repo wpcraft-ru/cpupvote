@@ -15,7 +15,7 @@
 			});
 			
 			$(document).click(function(event){
-				if (!$('.casepress-upvote-modal-display').is(':visible')) return false;
+				if (!$('.casepress-upvote-modal-display').is(':visible')) return;
 				if ($(event.target).closest('.casepress-upvote-modal-box').length) return;
 				$('.casepress-upvote-modal-display').hide();
 			});
